@@ -1,0 +1,37 @@
+body{
+  width: 900px;
+  margin: 0 auto;
+}
+form{
+  width: 100%;
+  margin: 0 auto 50px;
+}
+label{
+  width: 150px;
+  display: inline-block;
+  margin-right: 10%;
+}
+input[type=text],[type=password],[type=date]{
+  width: 20%;
+  margin-right: 38%;
+}
+button{
+  display: block;
+}
+.checkBoxLabel{
+  width: 150px;
+  margin-right: 10px;
+}
+.error{
+  color: red;
+}
+.task, .project{
+  margin: 10px 0;
+  background-color: #c1c5c6;
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.task > *, .project > *{
+  margin-left: 10px;
+}

@@ -1,0 +1,18 @@
+<h3>Projects</h3>
+<div id="projectList">
+  <div class="project" ng-repeat="project in PC.projects">
+    <h4 ng-bind="project.name"></h4>
+    <p>Location: {{project.location}}</p>
+    <p>Description: {{project.description}}</p>
+  </div>
+</div>
+<form id="addProject">
+  <label for="newProjectName">Name: </label>
+  <input type="text" id="newProjectName" ng-model="PC.newProjectName">
+  <label for="newProjectLocation">Location: </label>
+  <input type="text" id="newProjectLocation" ng-model="PC.newProjectLocation">
+  <label for="newProjectDescription">Description: </label>
+  <textarea id="newProjectDescription" rows="8" cols="80" ng-model="PC.newProjectDescription"></textarea>
+  <button type="submit" ng-click="PC.createProject()">Create Project</button>
+</form>
+<div class="error" ng-show="PC.errorFlag" ng-bind="PC.error"></div>
