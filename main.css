@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    max-width:90%;
+    margin:0 auto;
+    background-color: lightgray;
+}
+#mainContent
+{
+    max-width:100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top:1em;
+    min-height:500px;
+
+}
+article{
+    width:100%;
+    text-align: left;
+    background-color: white;
+    margin-right:1em;
+    padding:1em;
+    
+    
+}
+aside{
+    width:100%;
+    
+    background-color: cadetblue;
+    float: right;
+}
+.profilePic{
+    display: flex;
+    justify-content: space-between;
+     padding:1em;
+}
+.profilePic img{
+    width:50%;
+    height:50%;
+   
+}
+.project{
+    padding:1em;
+    text-align: center;
+    margin-top:1em;
+    background-color: lightsteelblue;
+    
+}
+.project ul li{
+    list-style: none;
+    padding:1em;
+}
+.project a
+{
+    text-decoration: none;
+    font-size: large;
+    color:cornsilk;
+}
+.details
+{
+    display: block;
+     padding:1em;
+}
+/*----------------- project wall--------------*/
+h1
+{
+    text-align: center;
+}
+.project_wallNav ul li
+{
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    padding:1em;
+    margin-top: 2em;
+}
+#mainArticle
+{
+    display: flex;
+    justify-content: space-between;
+    min-height: 500px;
+    margin-top:1em;
+    max-width:100%;
+    
+}
+.subDiv1
+{
+    background-color: white;
+    width:70%;
+}
+.subDiv2
+{
+    background-color: peachpuff;
+    width:30%;
+    color:white;
+    text-align: center;
+}
+h2
+{
+    padding:1em;
+}
+.createTaskForm{
+    margin-top:2em;
+}
+form
+{
+    margin:1em;
+    padding:1em;
+    display:inline-block;
+    justify-content: space-between;
+}
+label, input, button{
+    padding:1em;
+    width:100%;
+}
+button{
+    background-color: lightslategray;
+    font-size: medium;
+    margin-left:.75em;
+}
+button:hover
+{
+    background-color: darkgray;
+    color:white;
+    font-size:large;
+    
+}
+input{
+    margin:1em;
+    background-color: white;
+}
