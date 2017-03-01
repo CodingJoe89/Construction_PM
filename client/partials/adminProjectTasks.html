@@ -1,0 +1,23 @@
+<h3 ng-bind="PTC.project.name"></h3>
+<div id="taskList">
+  <div class="task" ng-repeat="task in PTC.project.tasks">
+    <h4 ng-bind="task.name"></h4>
+    <p>Task Start: <span ng-bind="task.startDate"></span></p>
+    <p>Task End: <span ng-bind="task.endDate"></span></p>
+    <p ng-bind="task.description"></p>
+  </div>
+</div>
+<form id="addTask">
+  <h4>Add Task</h4>
+  <label for="newTaskName">Name:</label>
+  <input type="text" id="newTaskName" ng-model="PTC.newTaskName">
+  <label for="newTaskStart">Start Date: </label>
+  <input type="date" id="newTaskStart" ng-model="PTC.newTaskStart">
+  <label for="newTaskEnd">End Date: </label>
+  <input type="date" id="newTaskEnd", ng-model="PTC.newTaskEnd">
+  <label for="newTaskDescription"></label>
+  <textarea id="newTaskDescription" rows="8" cols="80" ng-model="PTC.newTaskDescription"></textarea>
+  <button type="submit" ng-click="PTC.createTask()">Add Task!</button>
+</form>
+<div class="error" ng-show="PTC.errorFlag" ng-bind="PTC.error">
+</div>
