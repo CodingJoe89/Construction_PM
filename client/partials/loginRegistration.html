@@ -1,0 +1,36 @@
+<form id="login">
+  <h3>User Login</h3>
+  <label for="loginName">Username: </label>
+  <input type="text" id="loginName" ng-model="LRC.loginName">
+  <label for="loginPassword">Password: </label>
+  <input type="password" id="loginPassword" ng-model="LRC.loginPassword">
+  <button type="submit" ng-click="LRC.login()">Log In!</button>
+</form>
+<div class="error" ng-show="LRC.loginErrorFlag" ng-bind="LRC.error"></div>
+<form id="registration">
+  <h3>User Registration</h3>
+  <label for="registrationName">Username: </label>
+  <input type="text" id="registrationName" ng-model="LRC.registrationName">
+  <label for="registrationEmail">Email: </label>
+  <input type="text" id="registrationEmail" ng-model="LRC.registrationEmail">
+  <label for="registrationPassword">Password: </label>
+  <input type="password" id="registrationPassword" ng-model="LRC.registrationPassword">
+  <label for="registrationPasswordConfirm">Password: </label>
+  <input type="password" id="registrationPasswordConfirm" ng-model="LRC.registrationPasswordConfirm">
+  <button type="submit" ng-click="LRC.register()">Register!</button>
+</form>
+<div class="error" ng-show="LRC.registrationErrorFlag" ng-bind="LRC.error"></div>
+<form id="companyRegistration">
+  <h3>Company Registration</h3>
+  <label for="companyName">Company Name: </label>
+  <input type="text" id="companyName" ng-model="LRC.companyName">
+  <label>Company Specialties: </label>
+  <div ng-repeat="specialty in LRC.specialtyOptions">
+    <label class="checkBoxLabel"for="{{specialty}}" ng-bind="specialty"></label>
+    <input type="checkBox" id="{{specialty}}" ng-click="LRC.addSpecialty(specialty)">
+  </div>
+  <label for="specialtyOther">Other: </label>
+  <input type="text" id="specialtyOther" ng-model="LRC.specialtyOther">
+  <button type="submit" ng-click="LRC.registerCompany()">Register Company!</button>
+</form>
+<div class="error" ng-show="LRC.companyRegistrationErrorFlag" ng-bind="LRC.error"></div>
