@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>Construction App</title>
+  <script type="text/javascript" src="angular/angular.js"></script>
+  <script type="text/javascript" src="angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="controllers/adminProjectsController.js"></script>
+  <script type="text/javascript" src="controllers/adminProjectTasksController.js"></script>
+  <script type="text/javascript" src="controllers/loginRegistrationController.js"></script>
+  <link rel="stylesheet" href="/styles/adminStyles.css">
+</head>
+<body>
+  <a href="#!/loginRegister">Login</a>  |  <a href="#!/admin/projects">Projects</a>  |  <a href="#!/admin/project/tasks">Project Tasks</a>
+  <div ng-view="">
+
+  </div>
+
+</body>
+</html>
