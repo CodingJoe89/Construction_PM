@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+    <head>
+        <title>Construction management Tool</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="main.css">
+         <script src='node_modules/angular/angular.min.js'></script>
+        <script src="node_modules/angular-route/angular-route.js"></script>
+        
+    </head>
+    <body>  
+        <h1>Project Wall</h1>
+        <nav class="project_wallNav">
+            <ul>
+                <li>Home</li>
+                <li>Details</li>
+                <li>Tasks</li>
+                <li>Companies</li>
+            </ul>
+        </nav>
+        <div id="mainArticle">
+            <div class="subDiv1"></div>
+            <div class="subDiv2">
+                <h2>General</h2>
+                <h2>Mechanical</h2>
+                <h2>Controls</h2>
+            </div>
+        </div>
+        <div class="createTaskForm">
+            <h4>Enter the following details to create a task.</h4>
+            <form>
+                <label>Name of the Employee: <input type='text'></label><br>
+                <label>Start Date:   <input type='datetime'></label><br>
+                <label>End Date:     <input type='datetime'></label><br><br>
+                <button type="submit">Make a Task Request</button>
+            </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
+  
