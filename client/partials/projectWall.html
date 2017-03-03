@@ -1,0 +1,28 @@
+<h1>Project Wall</h1>
+<nav class="project_wallNav">
+  <ul>
+    <li>Home</li>
+    <li>Details</li>
+    <li>Tasks</li>
+    <li>Companies</li>
+  </ul>
+</nav>
+<div id="mainArticle">
+  <div class="subDiv1"></div>
+  <div class="subDiv2">
+    <h2>General</h2>
+    <h2>Mechanical</h2>
+    <h2>Controls</h2>
+  </div>
+</div>
+<div class="error" ng-show="PC.errorFlag" ng-bind="PC.error"></div>
+<div class="createTaskForm">
+  <h4>Enter the following details to create a task.</h4>
+  <form>
+    <label for="newTaskName">New Task Name: </label> <input type="text" id="newTaskName" ng-model="PC.newTaskName">
+    <label for="newTaskEmployee">Name of the Employee: <input type='text' id="newTaskEmployee" ng-model="PC.newTaskEmployee"></label><br>
+    <label for="newTaskStartDate">Start Date:   <input type='date' id="newTaskStartDate" ng-model="PC.newTaskStartDate"></label><br>
+    <label>End Date:     <input type='date' id="newTaskStartDate" ng-model="PC.newTaskEndDate"></label><br><br>
+    <button type="submit" ng-click="PC.createTask()">Make a Task Request</button>
+  </form>
+</div>

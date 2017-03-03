@@ -23,12 +23,12 @@ article{
     background-color: white;
     margin-right:1em;
     padding:1em;
-    
-    
+
+
 }
 aside{
     width:100%;
-    
+
     background-color: cadetblue;
     float: right;
 }
@@ -40,14 +40,14 @@ aside{
 .profilePic img{
     width:50%;
     height:50%;
-   
+
 }
 .project{
     padding:1em;
     text-align: center;
     margin-top:1em;
     background-color: lightsteelblue;
-    
+
 }
 .project ul li{
     list-style: none;
@@ -84,7 +84,7 @@ h1
     min-height: 500px;
     margin-top:1em;
     max-width:100%;
-    
+
 }
 .subDiv1
 {
@@ -125,10 +125,26 @@ button:hover
 {
     background-color: darkgray;
     color:white;
-    font-size:large;
-    
 }
 input{
     margin:1em;
     background-color: white;
+}
+/*-----Admin Styles-----*/
+.checkBoxLabel{
+  width: 150px;
+  margin-right: 10px;
+}
+.error{
+  color: red;
+}
+.task, .project{
+  margin: 10px 0;
+  background-color: #c1c5c6;
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.task > *, .project > *{
+  margin-left: 10px;
 }

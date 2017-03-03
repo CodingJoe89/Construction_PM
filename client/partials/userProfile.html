@@ -1,0 +1,31 @@
+<div id="mainContent">
+  <article>
+
+    <div>
+      <p><strong>Project name :</strong> {{UC.activeProject.name}}</p><br>
+      <p><strong>Location : </strong> {{UC.activeProject.location}}</p><br>
+      <div ng-repeat="task in UC.activeProject.tasks">
+        <p><strong>Task Name :</strong> {{task.name}}</p><br>
+        <p><strong> Task Start date : </strong>{{task.startDate}}</p><br>
+        <p><strong>Task description :</strong>{{task.startDate}}</p><br>
+      </div>
+    </div>
+  </article>
+  <aside>
+    <div class="profilePic">
+      <img src="/styles/profilePic.png" alt="profile Picture">
+      <div class="details"><h2>Name: {{UC.firstName}} {{UC.lastName}}</h2><br>
+        <h3>Speciality:  {{UC.specialty}}</h3><br>
+        <h3>Company Name: {{UC.company}}</h3>
+      </div>
+    </div>
+    <div class="project">
+      <h2>Projects</h2>
+      <ul>
+        <li ng-repeat="project in UC.projects">
+          <a href=""ng-click="UC.goToProjectWall(project)"> {{project.name}}</a>  |
+          <a href="" ng-click="UC.taskListUpdate(project.name)">Tasks</a>  </li>
+      </ul>
+    </div>
+  </aside>
+</div>
