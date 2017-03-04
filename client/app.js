@@ -16,4 +16,7 @@ angular.module("app").config(function($routeProvider){
     controller: "AdminProjectsController",
     controllerAs: "PC"
   });
+  .otherwise('/', {
+    redirectTo: '/'
+  })
 });
