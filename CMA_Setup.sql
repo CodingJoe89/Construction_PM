@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `companies`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `companies` (
-  `company_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL AUTO_INCREMENT,
   `company_name` varchar(45) NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`company_id`)
@@ -101,7 +101,7 @@ DROP TABLE IF EXISTS `projects`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `projects` (
-  `project_id` int(11) NOT NULL,
+  `project_id` int(11)  NOT NULL AUTO_INCREMENT,
   `project_name` varchar(45) NOT NULL,
   PRIMARY KEY (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -124,7 +124,7 @@ DROP TABLE IF EXISTS `specialty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `specialty` (
-  `specialty_id` int(11) NOT NULL,
+  `specialty_id` int(11)  NOT NULL AUTO_INCREMENT,
   `specialty_name` varchar(45) NOT NULL,
   PRIMARY KEY (`specialty_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -147,7 +147,7 @@ DROP TABLE IF EXISTS `tasks`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tasks` (
-  `task_id` int(11) NOT NULL,
+  `task_id` int(11)  NOT NULL AUTO_INCREMENT,
   `task_name` varchar(45) NOT NULL,
   `projects_project_id` int(11) NOT NULL,
   `start_date` datetime DEFAULT NULL,
