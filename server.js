@@ -16,6 +16,9 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(bodyParser.json());
 
 //require the database files and the server side routes here
+require('./server/config/db.js');
+require('./server/config/routes.js')(app);
+
 
 //set up server , open port
 app.listen(8000, function(){

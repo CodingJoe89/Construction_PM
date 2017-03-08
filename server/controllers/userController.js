@@ -1,41 +1,41 @@
-const mysql = require('mysql');
+// const mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'CMA'
-});
-
-connection.connect(function(error){
-  if (!!error){
-    console.log('error');
-  } else {
-    console.log('connected');
-  }
-});
+// var process.connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'root',
+//   database: 'CMA'
+// });
+//
+// process.connection.connect(function(error){
+//   if (!!error){
+//     console.log('error');
+//   } else {
+//     console.log('connected');
+//   }
+// });
 
 
 function userController(){
   this.index = function(req,res){
-    connection.query('select * from CMA', function(err, result){
-      if (err) {
-        console.log('error');
-      } else {
-        console.log('insert success');
-        console.log(result);
-      }
-    });
+    // process.connection.query('select * from CMA', function(err, result){
+    //   if (err) {
+    //     console.log('error');
+    //   } else {
+    //     console.log('insert success');
+    //     console.log(result);
+    //   }
+    // });
   }
   this.create = function(req, res){
-    connection.query('insert into CMA set ?', user, function(err, result){
-      if (err) {
-        console.log('error');
-      } else {
-        console.log('insert success');
-        console.log(result);
-      }
-    });
+    // process.connection.query('insert into CMA set ?', user, function(err, result){
+    //   if (err) {
+    //     console.log('error');
+    //   } else {
+    //     console.log('insert success');
+    //     console.log(result);
+    //   }
+    // });
   }
   this.destroy = function(req, res){
 
@@ -48,4 +48,6 @@ function userController(){
   }
 }
 
-module.exports = new userController();
+var user = new userController();
+
+module.exports = user

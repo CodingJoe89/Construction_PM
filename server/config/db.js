@@ -7,17 +7,18 @@ var mysql = require('mysql');
 /*
 DB information
  */
-var connection = mysql.createConnection({
+process.connection = mysql.createConnection({
     host: 'localhost',
-    user: '',
-    password: '',
-    database: 'databaseName'
+    port: 8800,
+    user: 'root',
+    password: 'root',
+    database: 'CMA'
 });
 /*
 Connection to Database
  */
 
-connection.connect(function(err){
+process.connection.connect(function(err){
     if(!err){
         console.log("Database Connection SUCCESSFUL.")
     }
@@ -36,4 +37,3 @@ connection.connect(function(err){
 /*
  *  If the Node process ends, close the Mongoose connection
  */
-
