@@ -14,3 +14,10 @@ EXAMPLE:
  res.send(req.body.fName);
  });
  */
+
+const companies = require('../controllers/companiesController.js');
+module.exports = function(app){
+    app.get( '/players', companies.index ),
+        app.post( '/players', companies.create ),
+        app.post( '/players/delete/:player_id', companies.destroy)
+}
