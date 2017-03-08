@@ -15,5 +15,16 @@ angular.module("app").config(function($routeProvider){
     templateUrl: "partials/adminProjects.html",
     controller: "AdminProjectsController",
     controllerAs: "PC"
-  });
+  })
+  .when("/project", {
+    templateUrl: "partials/projectWall.html",
+    controller: "ProjectController",
+    controllerAs: "PC"
+  })
+  .when("/user", {
+    templateUrl: "partials/userProfile.html",
+    controller: "UserController",
+    controllerAs: "UC"
+  })
+  .otherwise("/loginRegister");
 });
