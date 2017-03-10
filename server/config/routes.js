@@ -10,7 +10,7 @@ module.exports = function(app){
   app.post('/user/assignUserToCompany/:user_id')
 
   // app.get('/projects', projects.index),
-  // app.post('/projects', projects.create),
+  app.post('/projects', projects.create);
   // app.post('/projects/delete/:project_id', projects.destroy)
   //
   // app.get( '/companies', companies.index ),
