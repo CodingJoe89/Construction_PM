@@ -9,7 +9,7 @@ DB information
  */
 process.connection = mysql.createConnection({
     host: 'localhost',
-    port: 8800,
+    port: 3306,
     user: 'root',
     password: 'root',
     database: 'CMA'
@@ -35,5 +35,5 @@ process.connection.connect(function(err){
  */
 
 /*
- *  If the Node process ends, close the Mongoose connection
+ *  If the Node process ends, close the  connection
  */
