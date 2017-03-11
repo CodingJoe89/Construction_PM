@@ -1,27 +1,34 @@
-angular.module("app").controller("AdminProjectTasksController", function($location){
+angular.module("app").controller("AdminProjectTasksController", function($location, taskFactory){
   var self = this;
   self.errorFlag = false;
   self.error = "";
+  self.projects = [];
   //we will want to pull the project from the DB using a factory - this is placeholder data for the moment
-  self.project = {
-    name: "Test Project",
-    tasks: [
-      {name: "Task 1",
-      startDate: "Jan 1",
-      endDate: "Jan 30",
-      description: "Task 1 Description goes here..."},
-      {
-        name: "Task 2",
-        startDate: "Jan 1",
-        endDate: "Jan 30",
-        description: "Task 2 Description goes here..."
-      }]
-    };
+  // self.project = {
+    // name: "Test Project",
+    // tasks: [
+    //   {name: "Task 1",
+    //   startDate: "Jan 1",
+    //   endDate: "Jan 30",
+    //   description: "Task 1 Description goes here..."},
+    //   {
+    //     name: "Task 2",
+    //     startDate: "Jan 1",
+    //     endDate: "Jan 30",
+    //     description: "Task 2 Description goes here..."
+    //   }]
+    // };
 
   //this will use a factory to reach our back-end and populate our project data
-  function getProjectData(){
-
+  function getProjectData(returnedData){
+    self.projects = returnedData;
   };
+  getProjects();
+  function getProjects(){
+    taskFactory.getProjects(function(data){
+      self.projects = data;
+    });
+  }
 
   function createError(error){
     self.errorFlag = true;
@@ -30,6 +37,7 @@ angular.module("app").controller("AdminProjectTasksController", function($locati
 
   // need factory methods
   self.createTask = function(){
+    // console.log(self.project_name.project_id);
     if(!self.newTaskName){
       createError("Missing task name!");
       return;
@@ -47,14 +55,19 @@ angular.module("app").controller("AdminProjectTasksController", function($locati
       return;
     }
     var newTask = {
-      name: self.newTaskName,
-      startDate: self.newTaskStart,
-      endDate: self.newTaskEnd,
-      description: self.newTaskDescription
+      task_name: self.newTaskName,
+      task_description: self.newTaskDescription,
+      projects_project_id: self.project_name.project_id,
+      start_date: self.newTaskStart,
+      end_date: self.newTaskEnd,
+      estimated_time: ""
     };
     self.errorFlag = false;
     self.error = "";
-    console.log(newTask);
+    taskFactory.addTask(newTask, function(returnedData){
+      console.log(returnedData);
+    });
+
   };
 
 });

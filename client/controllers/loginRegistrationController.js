@@ -1,4 +1,4 @@
-angular.module("app").controller("LoginRegistrationController", function($location){
+angular.module("app").controller("LoginRegistrationController", function($location,LoginRegistrationFactory, companyFactory){
   var self = this;
   self.specialtyOptions = ["Structural", "Mechanical", "Electrical", "Security", "Finishings"];
   self.newCompany = {specialty: []};
@@ -20,9 +20,13 @@ angular.module("app").controller("LoginRegistrationController", function($locati
     resetFlags();
     if(self.loginName && self.loginPassword){
       var loginCredentials = {
-        name: self.loginName,
-        password: self.loginPassword};
-        console.log(loginCredentials);
+        email: self.loginName,
+        password: self.loginPassword
+      };
+        LoginRegistrationFactory.getUser(loginCredentials, function(data){
+            console.log( data);
+        });
+        //console.log( loginCredentials);
       }
       else{
         self.error = "Login Error";
@@ -30,16 +34,23 @@ angular.module("app").controller("LoginRegistrationController", function($locati
       }
     };
 
-    //need factory methods
+  //need factory methods
   self.register = function(){
     resetFlags();
     if(self.registrationName && self.registrationPassword &&  self.registrationPassword == self.registrationPasswordConfirm){
-      var newUser = {
-        name: self.registrationName,
+
+       var newUser = {
+        first_name: self.registrationName,
+        last_name:"dummy data",
+        profile:"",
+        username:"dummy data",
         email: self.registrationEmail,
         password: self.registrationPassword};
-        //use factory methods to post the newUser to the backend
+
         console.log(newUser);
+        //use factory methods to post the newUser to the backend
+        LoginRegistrationFactory.addUser(newUser);
+
       }
       else{
         self.registrationErrorFlag = true;
@@ -56,7 +67,6 @@ angular.module("app").controller("LoginRegistrationController", function($locati
     else{
       self.newCompany.specialty.splice(self.newCompany.specialty.indexOf(specialty), 1);
     }
-    console.log(self.newCompany.specialty);
   };
 
   // need factory methods
@@ -67,7 +77,14 @@ angular.module("app").controller("LoginRegistrationController", function($locati
       if(typeof(self.specialtyOther) == "string"){
         self.newCompany.specialty.push(self.specialtyOther);
       }
-      console.log(self.newCompany);
+      companyFactory.registerCompany(self.newCompany, function(returnedData){
+        // if the returned data has errors, show them
+        // otherwise, alert with the new data
+        self.companyName = returnedData.last_name;
+        self.adminUserName = returnedData.first_name;
+        // self.adminPassword = returnedData.userPassword;
+        window.alert(`Company Registered! \n` + `Admin Username: ${self.adminUserName}`);
+      });
     }
     else{
       self.companyRegistrationErrorFlag = true;
