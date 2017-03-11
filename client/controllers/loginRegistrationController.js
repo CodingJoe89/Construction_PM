@@ -1,4 +1,4 @@
-angular.module("app").controller("LoginRegistrationController", function($location){
+angular.module("app").controller("LoginRegistrationController", function($location, companyFactory){
   var self = this;
   self.specialtyOptions = ["Structural", "Mechanical", "Electrical", "Security", "Finishings"];
   self.newCompany = {specialty: []};
@@ -30,7 +30,7 @@ angular.module("app").controller("LoginRegistrationController", function($locati
       }
     };
 
-    //need factory methods
+  //need factory methods
   self.register = function(){
     resetFlags();
     if(self.registrationName && self.registrationPassword &&  self.registrationPassword == self.registrationPasswordConfirm){
@@ -56,7 +56,6 @@ angular.module("app").controller("LoginRegistrationController", function($locati
     else{
       self.newCompany.specialty.splice(self.newCompany.specialty.indexOf(specialty), 1);
     }
-    console.log(self.newCompany.specialty);
   };
 
   // need factory methods
@@ -67,7 +66,14 @@ angular.module("app").controller("LoginRegistrationController", function($locati
       if(typeof(self.specialtyOther) == "string"){
         self.newCompany.specialty.push(self.specialtyOther);
       }
-      console.log(self.newCompany);
+      companyFactory.registerCompany(self.newCompany, function(returnedData){
+        // if the returned data has errors, show them
+        // otherwise, alert with the new data
+        self.companyName = returnedData.last_name;
+        self.adminUserName = returnedData.first_name;
+        // self.adminPassword = returnedData.userPassword;
+        window.alert(`Company Registered! \n` + `Admin Username: ${self.adminUserName}`);
+      });
     }
     else{
       self.companyRegistrationErrorFlag = true;
