@@ -16,3 +16,4 @@
   <button type="submit" ng-click="PC.createProject()">Create Project</button>
 </form>
 <div class="error" ng-show="PC.errorFlag" ng-bind="PC.error"></div>
+<div class="error" ng-show="PC.successFlag">{{PC.responseProjectName}} created successfully!</div>
