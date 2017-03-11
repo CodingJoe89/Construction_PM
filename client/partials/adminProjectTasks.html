@@ -16,6 +16,7 @@
   <label for="newTaskEnd">End Date: </label>
   <input type="date" id="newTaskEnd", ng-model="PTC.newTaskEnd">
   <label for="newTaskDescription"></label>
+  <select ng-options='project.project_name for project in PTC.projects' ng-model = 'PTC.project_name'></select>
   <textarea id="newTaskDescription" rows="8" cols="80" ng-model="PTC.newTaskDescription"></textarea>
   <button type="submit" ng-click="PTC.createTask()">Add Task!</button>
 </form>

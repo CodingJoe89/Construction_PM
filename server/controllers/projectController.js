@@ -10,12 +10,12 @@
 
 function ProjectController(){
     this.index= function(req,res){
-        if (err){
-
+      process.connection.query('SELECT * from `projects`', function(error, results, fields){
+        if(error) res.json(error);
+        else {
+          res.json(results);
         }
-        else{
-
-        }
+      });
 
     }
     this.create=function(req,res){
