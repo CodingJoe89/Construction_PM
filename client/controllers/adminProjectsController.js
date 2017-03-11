@@ -1,7 +1,8 @@
-angular.module("app").controller("AdminProjectsController", function($location){
+angular.module("app").controller("AdminProjectsController", function($location, projectFactory){
   var self = this;
   self.errorFlag = false;
   self.error = "";
+  self.successFlag = false;
   //dummy projects data
   self.projects = [
     {
@@ -46,7 +47,19 @@ angular.module("app").controller("AdminProjectsController", function($location){
     };
     self.errorFlag = false;
     self.error = "";
-    console.log(newProject);
+    projectFactory.createProject(newProject, function(returnedData){
+      console.log(returnedData);
+      if(returnedData.status == "success"){
+        self.successFlag = true;
+        self.responseProjectName = returnedData.data.projectName;
+        self.newProjectName = "";
+        self.newProjectLocation = "";
+        self.newProjectDescription = "";
+      }
+      else{
+        alert("Project Creation Error!");
+      }
+    });
   };
-  
+
 });

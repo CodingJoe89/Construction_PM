@@ -1,0 +1,49 @@
+/**
+ * DATABASE TEST
+ *
+ */
+
+var express    = require("express");
+const path = require('path');
+
+var mysql      = require('mysql');
+var jasmine_node = require('jasmine-node');
+
+var jasmine = require('jasmine');
+
+var app = express();
+
+//configure application
+app.use(express.static(path.join(__dirname, '../node_modules')));
+app.use(express.static(path.join(__dirname, '../server/config/db.js')));
+
+
+var r = require('requestah')(8000); // Set the port for future requests
+
+
+describe("check db connection", function(){
+   require('../server/config/db.js');
+
+    // var connectionState = process.connection.state;
+    /*it('authenticate state of connection2', function() {
+         expect(connectionState).toBe('authenticated');
+        });
+    */
+
+    //close connection after a 1 sec.
+    setTimeout(function(){
+
+        process.connection.end();
+    },2000);
+
+});
+
+
+
+
+//set up server , open port
+/*app.listen(8000, function(){
+    console.log("    ");
+    console.log("=========== SERVER LISTENING ON PORT 8000 ================");
+    console.log("    ");
+})*/

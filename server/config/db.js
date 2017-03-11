@@ -35,5 +35,5 @@ process.connection.connect(function(err){
  */
 
 /*
- *  If the Node process ends, close the Mongoose connection
+ *  If the Node process ends, close the  connection
  */
