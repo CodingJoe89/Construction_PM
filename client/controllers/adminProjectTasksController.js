@@ -47,10 +47,10 @@ angular.module("app").controller("AdminProjectTasksController", function($locati
       return;
     }
     var newTask = {
-      name: self.newTaskName,
-      startDate: self.newTaskStart,
-      endDate: self.newTaskEnd,
-      description: self.newTaskDescription
+      task_name: self.newTaskName,
+      task_description: self.newTaskDescription,
+      start_date: self.newTaskStart,
+      end_date: self.newTaskEnd
     };
     self.errorFlag = false;
     self.error = "";

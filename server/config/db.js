@@ -9,7 +9,7 @@ DB information
  */
 process.connection = mysql.createConnection({
     host: 'localhost',
-    port: 8800,
+    port: 8889,
     user: 'root',
     password: 'root',
     database: 'CMA'
