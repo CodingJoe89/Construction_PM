@@ -3,10 +3,12 @@ angular.module('app')
 
 function LoginRegistrationFactory($http){
     var factory = {};
-    factory.getUser = function(callback){
-        $http.get('/users')
+    factory.getUser = function(userCredentials,callback){
+        $http.post('/users',userCredentials)
              .then(function(backendData){
-                callback(backendData.data);
+             callback(backendData.data[0]);
+                console.log(backendData);
+
             })
     }
 
