@@ -1,11 +1,55 @@
 
 
 function userController(){
+
+    /*
+     -------------------Retrieving one User's Data-------------------------
+    * Errors:
+    * Result not found , Password not found
+     */
+
+    this.getUser = function(req,res){
+
+        process.connection.query('SELECT * FROM users WHERE email = ?',req.body.email, function(err, result){
+           var errors = {
+               id : "",
+               message :""
+           }
+           var stuff;
+            if (err) {
+                console.log('select * from users error  '+ err);
+            } else {
+                if(result.length == 0){
+                    console.log('get user : no result found');
+                  errors.id = 1;
+                  errors.message = 'get user : no result found';
+                    stuff = [errors];
+                   // res.json(errors);
+
+                }
+                else if(result[0].password !== req.body.password){
+                    console.log('password not a match');
+                    errors.id = 2;
+                    errors.message = 'password not a match';
+                    stuff = [errors];
+                }
+                else {
+                    stuff = result
+                }
+                console.log(result);
+
+                res.json(stuff);
+                console.log('select success');
+                }
+
+        });
+    }
+    /*
     /*
      -------------------Retrieving User Data-------------------------
      */
   this.index = function(req,res){
-    process.connection.query('select * from users', function(err, result){
+    process.connection.query('SELECT * FROM users ', function(err, result){
       if (err) {
          console.log('select * from users error  '+ err);
        } else {

@@ -20,9 +20,13 @@ angular.module("app").controller("LoginRegistrationController", function($locati
     resetFlags();
     if(self.loginName && self.loginPassword){
       var loginCredentials = {
-        name: self.loginName,
-        password: self.loginPassword};
-        console.log(loginCredentials);
+        email: self.loginName,
+        password: self.loginPassword
+      };
+        LoginRegistrationFactory.getUser(loginCredentials, function(data){
+            console.log( data);
+        });
+        //console.log( loginCredentials);
       }
       else{
         self.error = "Login Error";
