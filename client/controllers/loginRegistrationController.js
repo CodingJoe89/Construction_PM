@@ -1,4 +1,4 @@
-angular.module("app").controller("LoginRegistrationController", function($location, companyFactory){
+angular.module("app").controller("LoginRegistrationController", function($location,LoginRegistrationFactory, companyFactory){
   var self = this;
   self.specialtyOptions = ["Structural", "Mechanical", "Electrical", "Security", "Finishings"];
   self.newCompany = {specialty: []};
@@ -34,12 +34,19 @@ angular.module("app").controller("LoginRegistrationController", function($locati
   self.register = function(){
     resetFlags();
     if(self.registrationName && self.registrationPassword &&  self.registrationPassword == self.registrationPasswordConfirm){
-      var newUser = {
-        name: self.registrationName,
+
+       var newUser = {
+        first_name: self.registrationName,
+        last_name:"dummy data",
+        profile:"",
+        username:"dummy data",
         email: self.registrationEmail,
         password: self.registrationPassword};
-        //use factory methods to post the newUser to the backend
+
         console.log(newUser);
+        //use factory methods to post the newUser to the backend
+        LoginRegistrationFactory.addUser(newUser);
+
       }
       else{
         self.registrationErrorFlag = true;
